@@ -1,0 +1,3 @@
+Install Python. Add to Path.
+Install Pip.
+Install Django
