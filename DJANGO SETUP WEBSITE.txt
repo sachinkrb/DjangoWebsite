@@ -1,0 +1,58 @@
+
+Windows 10:
+-----------------------------------------
+Install Python. Put a check mark on Add to Path. Pip, the package manager should come  with it.
+
+Open Powershell as Admin
+python --version
+#Should show python version, if it shows 2.x.x, you have to type python3 --version. 
+#In that case for all commands below: replaces python with python3.
+
+pip --version
+#Checks the package manager for python
+
+#CHANGE YOUR POWERSHELL to C:\> first!
+
+python -m venv code
+#Create a virtual environment inside the folder named 'code' created at the same time.
+
+code\Scripts\Activate.ps1  
+#its activate.bat if you are using Command Prompt instead of PowerShell.
+#Activates the virtual enviornment with python and for python.
+
+cd .\code\
+
+pip install django
+#installs latest django for your project.
+
+python -m pip install --upgrade pip
+#Upgrade PIP if it says so.
+
+mkdir djangoproject
+#The trend seems to be to create 'src' folder instead of 'djangoproject'. Its upto you! 
+#Mine created in 'code' folder after cding into code folder.
+
+cd .\djangoproject\
+
+django-admin.py start project mysite .	
+#Don't forget the '.' at the end.		
+#'mysite' can be anything, you can name it 'code' sames as virtual enviroment or simply just the name of your website.
+-------------------------------------------
+
+Folder structure:
+
+code
+	\Include
+	\Lib
+	\Scripts
+	pyenv.cfg
+	\djangoproject
+		manage.py
+		\mysite
+			init.py
+			urls.py
+			wsgi.py
+			settings.py
+
+#Folder structure should be pretty much similar to above.
+#'pip freeze' command inside code folder will show if django is installed or not.			
