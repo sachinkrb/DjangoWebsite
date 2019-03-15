@@ -1,0 +1,98 @@
+#Understand What You Are Trying To Do, Do What You Understood After You Understand What You Understood :D:D Makes No Sense!
+------------------------------------------------------------------------------------------------------------------------------
+Windows 10:
+------------------------------------------------------------------------------------------------------------------------------
+Install Python. Put a check mark on Add to Path. Pip, the package manager should come  with it. Go to official website!
+
+Open Powershell as Administrator.
+PS C:\>Set-ExecutionPolicy Unrestricted
+#Hit 'Y' and enter when prompted
+
+python --version
+#Should show python version, if it shows 2.x.x, you have to type python3 --version. 
+#In that case for all commands below: replaces python with python3.
+
+pip --version
+#Checks the package manager for python
+
+#CHANGE YOUR POWERSHELL to C:\> first!
+
+python -m venv code
+#Create a virtual environment inside the folder named 'code' created at the same time.
+
+code\Scripts\Activate.ps1  
+#Its activate.bat if you are using Command Prompt instead of PowerShell.
+#Activates the virtual enviornment with python and for python.
+
+cd .\code\
+
+pip install django
+#Installs latest django for your project inside the 'code' folder.
+
+python -m pip install --upgrade pip
+#Upgrade PIP if it says so.
+#YOU CAN RUN THIS HERE: 'django-admin startproject mysite' and skip to python mangage.py run server command after that.
+#Also cd into mysite to access manage.py
+Folder structure will be:
+\code
+	\mysite
+	manage.py & venv,django folders
+		\mysite
+		settings,__ini__, urls, wsgi 
+
+mkdir djangoproject
+#The trend seems to be to create 'src' folder instead of 'djangoproject'. Its upto you! 
+#Mine created in 'code' folder after cding into code folder.
+
+cd .\djangoproject\
+
+django-admin.py startproject mysite .
+#Don't forget '.' at the end	
+#'mysite' can be anything, you can name it 'code' sames as virtual enviroment or simply just the name of your website.
+
+C:\code\djangoproject> python manage.py runserver
+#Ignore any unapplied migrations notifications
+# Copy and paste the starting development server at '.......................' on a web browser. Voila! Mine is localhost:8000
+
+-----------------------------------------------> ROCKET LAUNCHED <-----------------------------------------------------------
+# Dont worry about DEBUG = TRUE which means you are not in production, and dont seem to be anytime soon :D
+
+Do CTRL C or CTRL BREAK 
+#Exit out of running server
+
+python manage.py migrate
+#Take care of unapplied migrations notifications above.
+#Its working for database db.sqlite3 under folder 'djangoproject'
+#If you run it again, it should say Apply all migrations: admin, auth, contenttypes, sessions. No migrations to apply.
+#Under settings.py if you change to db2.sqlite3, it will create another db, it is true with sqlite3!
+
+python manage.py createsuperuser
+# creates username, email, password for localhost:8000/admin in my case.
+#After logging in, you get USERS AND GROUPS, GO ahead n skim , edit if you need to, Play around carefully
+
+#Root of the project is where the manage.py file is!
+
+Open settings.py file and start learning from top to bottom, Search python documentations!
+
+------------------------------------------------------------------------------------------------------------------------------
+You can open 'code' folder as existing project in any IDE of your choice .....PyCharm OR Sublime Text
+------------------------------------------------------------------------------------------------------------------------------
+
+Folder structure:
+
+code  OR  (AwesomeWebsite)
+	\Include
+	\Lib
+	\Scripts
+	pyenv.cfg
+	\djangoproject(src)
+		manage.py
+		\mysite   OR (AwesomeWebsite)
+			init.py
+			urls.py
+			wsgi.py
+			settings.py
+
+#Folder structure should be pretty much similar to above. 
+#Virtual environment folder and project folder can have same name as above.
+#'pip freeze' command inside 'code' folder will show if django is installed or not.			
